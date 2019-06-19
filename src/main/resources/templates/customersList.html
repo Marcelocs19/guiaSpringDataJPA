@@ -11,14 +11,17 @@
     <table>
     	<thead>
     		<tr>
+    		<th> ID </th> 
     		<th>Nome </th>
     		<th>Sobrenome </th>
     	</thead>
     	<tbody>
     		<tr th:each="c : ${cs}">
-    			<td th:text="${c.firstName}"> Primeiro Nome </td>
-    			<td th:text="${c.lastName}"> Sobrenome</td>
-    		</tr>
+    		<td>
+    	    <a th:href="@{/customers/__${c.id}__}" th:text="${c.id}"/></a>
+    		</td>    		
+    		<td th:text="${c.firstName}"> Primeiro nome </td>
+    		<td th:text="${c.lastName}"> Último nome </td>
     		<tr> 
     			<td> Segunda Linha </td>  
     		</tr>
