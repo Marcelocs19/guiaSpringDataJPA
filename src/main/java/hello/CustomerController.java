@@ -1,9 +1,12 @@
 package hello;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.*;
 
 @Controller
 public class CustomerController {
@@ -18,6 +21,9 @@ public class CustomerController {
 	@GetMapping("/customers")
 	public String listAllCustomers(Model model) {
 		List<Customer> lista = customers.findAll();
+		
+		Collections.sort(lista, Comparator.comparing(Customer:: getFirstName));
+		
 		model.addAttribute("cs", lista);
 		return "customersList";
 	}
