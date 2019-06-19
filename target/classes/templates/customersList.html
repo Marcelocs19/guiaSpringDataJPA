@@ -1,26 +1,28 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-th:replace="~{fragments/layout :: layout (~{::body},'cs')}">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Customer List</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-  
-  <h2>Customers</h2>
-  
-   <table id="cs" class="table table-striped">
-     <thead>
-       <tr>
-         <th>Nome</th>
-         <th>Sobrenome</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr th:each="customer : ${cs.getLista}">
-         <td th:text="${customer.firstName + ' ' + customer.lastName}"></td>
-       </tr>
-     </tbody>
-   </table>    
+
+	<h2>Customer List</h2>
+    <table>
+    	<thead>
+    		<tr>
+    		<th>Nome </th>
+    		<th>Sobrenome </th>
+    	</thead>
+    	<tbody>
+    		<tr th:each="c : ${cs}">
+    			<td th:text="${c.firstName}"> Primeiro Nome </td>
+    			<td th:text="${c.lastName}"> Sobrenome</td>
+    		</tr>
+    		<tr> 
+    			<td> Segunda Linha </td>  
+    		</tr>
+    	</tbody>
+    </table>
 </body>
 </html>
